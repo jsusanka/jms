@@ -1,0 +1,9 @@
+- name: Update Red Hat server OS to the latest patches.
+  yum:  
+    name: "*"
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == 'RedHat' 
+  register: Rhat
+- name: output debug info
+  debug: msg="debug info is {{ Rhat }}"
