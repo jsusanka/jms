@@ -1,0 +1,9 @@
+- name: Update CentOS to the latest patches.
+  yum:  
+    name: "*"
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == 'CentOS' 
+  register: Cent
+- name: output debug info
+  debug: msg="debug info is {{ Cent }}"
