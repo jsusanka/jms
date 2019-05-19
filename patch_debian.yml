@@ -1,0 +1,9 @@
+- name: Update Debian or Debian Based server OS to the latest patches.
+  apt:  
+    name: "*"
+    state: latest
+    update_cache: yes
+  when: ansible_os_family == 'Debian' 
+  register: Deb 
+- name: output debug info
+  debug: msg="debug info is {{ Deb }}"
