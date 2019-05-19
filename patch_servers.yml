@@ -1,0 +1,12 @@
+- hosts: '{{ instance }}'
+  become: yes
+
+  tasks:
+         - name: Update CentOS server OS to the latest patches.
+           include: patch_centos.yml
+         - name: Update Red Hat server OS to the latest patches.
+           include: patch_redhat.yml
+         - name: Update Ubuntu server OS to the latest patches.
+           include: patch_debian.yml
+         - name: Update Fedora server OS to the latest patches.
+           include: patch_fedora.yml
